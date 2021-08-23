@@ -6,7 +6,7 @@ const Sidebar = ({ selectedLocation }) => {
   const inputRef = useRef();
   const handleAddUser = async () => {
     if (selectedLocation) {
-      await axios.post("http://localhost:5000/users/", {
+      await axios.post("https://rate-people.herokuapp.com/users", {
         name: inputRef.current.value,
         location: selectedLocation,
       });
@@ -16,7 +16,7 @@ const Sidebar = ({ selectedLocation }) => {
 
   const loadUsers = () => {
     axios
-      .get(`http://localhost:5000/users/${selectedLocation}`)
+      .get(`https://rate-people.herokuapp.com/users/${selectedLocation}`)
       .then((res) => setUsers(res.data));
   };
 
